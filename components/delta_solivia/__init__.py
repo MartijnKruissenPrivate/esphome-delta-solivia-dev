@@ -120,6 +120,8 @@ CONF_INV_MAX_SOLAR_POWER_INPUT_1   = "max_solar_power_input_1"
 CONF_INV_MIN_SOLAR_ISO_RES_INPUT_1 = "min_solar_isolation_resistance_input_1"
 CONF_INV_MAX_SOLAR_ISO_RES_INPUT_1 = "max_solar_isolation_resistance_input_1"
 
+CONF_INV_STATUS_TEXT               = "inverter_status"
+
 # supported variants and their parser
 SUPPORTED_VARIANTS = {
     ( 15, 18, 19, 20, 31, 34, 35, 36, 38, 39, 55, 58, 59, 60 ): 'Variant15Parser',
@@ -155,6 +157,8 @@ INVERTER_SCHEMA = cv.Schema({
     cv.Optional(CONF_INV_THROTTLE, default = '10s'): cv.update_interval,
     cv.Optional(CONF_INV_PART_NUMBER): text_sensor.text_sensor_schema(),
     cv.Optional(CONF_INV_SERIAL_NUMBER): text_sensor.text_sensor_schema(),
+    cv.Optional(CONF_INV_STATUS_TEXT): text_sensor.text_sensor_schema(),
+
     cv.Optional(CONF_INV_SOLAR_VOLTAGE_INPUT_1): sensor.sensor_schema(
         unit_of_measurement = UNIT_VOLT,
         icon = 'mdi:solar-power',
